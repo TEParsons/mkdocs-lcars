@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  <link href="{{ 'css/lcars.css'|url }}" rel="stylesheet">
+  {%- for path in config.extra_css %}
+  <link href="{{ path | url }}" rel="stylesheet">
+  {%- endfor %}
+</head>
+
+<body class="lcars-background">
+  <header class="lcars-header">
+    <nav class="lcars-nav">
+      {% for nav_item in nav %}
+      {% if nav_item.children and not nav_item.url %}
+      <a class="{% if nav_item.active %}current{% endif %}" href="{{ nav_item.children[0].url|url }}">{{nav_item.title }}</a>
+      {% else %}
+      <a class="{% if nav_item.active %}current{% endif %}" href="{{ nav_item.url|url }}">{{nav_item.title }}</a>
+      {% endif %}
+      {% endfor %}
+    </nav>
+    <img class="lcars-logo" src="{{config.theme.logo}}"/>
+  </header>
+  <main class="lcars-page">
+    <div class="lcars-title">{{ config.site_name }}</div>
+    <nav class="lcars-toc"></nav>
+    {# add page content #}
+    {{ page.content }}
+  </main>
+  
+  {%- for script in config.extra_javascript %}
+  {{ script | script_tag }}
+  {%- endfor %}
+</body>
+
+</html>
