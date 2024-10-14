@@ -1,0 +1,29 @@
+[project]
+name = "mkdocs-lcars"
+version = "0.0.0"
+authors = [
+    {name = "Todd Parsons", email = "todd.e.parsons@gmail.com"}
+]
+description = "mkdocs theme styled like the LCARS computer interface from Star Trek. Make it so!"
+readme = "README.md"
+
+dependencies = [
+    "mkdocs"
+]
+[project.optional-dependencies]
+tests = [
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://TEParsons.github.io/mkdocs-lcars"
+Download = "https://github.com/TEParsons/mkdocs-lcars/releases"
+
+[tool.setuptools]
+packages = ["mkdocs_lcars"]
+
+[tool.setuptools.package-data]
+mkdocs_lcars = ["**/*.html", "**/*.css", "**/*.yml", "**/*.jpg", "**/*.png", "**/*.json", "**/*.ttf"]
+
+[project.entry-points."mkdocs.themes"]
+lcars = "mkdocs_lcars"

@@ -1,1 +1,5 @@
 @import url("lcars/lcars.css");
+
+.lcars-nav a {
+    font-size: 3rem;
+}
